@@ -27,8 +27,12 @@ const getItemDetails = (id: string) => {
   return items[id as keyof typeof items];
 };
 
-export default function ItemDetails({ params }: { params: { id: string } }) {
-  const item = getItemDetails(params.id);
+export default async function ItemDetails({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const item = getItemDetails((await params).id);
 
   if (!item) {
     notFound();

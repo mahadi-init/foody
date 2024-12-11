@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
+import { Route } from "next";
 
 export default function PaymentConfirmationPage() {
   // In a real application, you would fetch the payment details from your API
@@ -47,7 +48,7 @@ export default function PaymentConfirmationPage() {
             <Link href="/">Return to Home</Link>
           </Button>
           <Button variant="outline" asChild>
-            <Link href="/order-history">View Order History</Link>
+            <Link href={"/order-history" as Route}>View Order History</Link>
           </Button>
         </CardFooter>
       </Card>

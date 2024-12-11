@@ -42,8 +42,8 @@ export default function ForgotPasswordPage() {
               <AlertCircle className="h-4 w-4" />
               <AlertTitle>Check your email</AlertTitle>
               <AlertDescription>
-                We've sent you a link to reset your password. Please check your
-                inbox.
+                We&apos;ve sent you a link to reset your password. Please check
+                your inbox.
               </AlertDescription>
             </Alert>
           ) : (

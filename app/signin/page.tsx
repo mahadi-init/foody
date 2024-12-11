@@ -54,13 +54,13 @@ export default function SigninPage() {
         </CardContent>
         <CardFooter className="flex-col space-y-2">
           <Link
-            href="/forgot-password"
+            href="/forget-password"
             className="text-sm text-primary hover:underline"
           >
             Forgot your password?
           </Link>
           <p className="text-sm text-muted-foreground">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link href="/signup" className="text-primary hover:underline">
               Sign Up
             </Link>
