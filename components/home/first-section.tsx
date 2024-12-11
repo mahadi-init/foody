@@ -170,7 +170,7 @@ export default function FirstSection() {
       <section>
         <h2 className="text-2xl font-bold mb-6 flex items-center">
           <ThumbsUp className="w-6 h-6 mr-2 text-primary" />
-          Customer's Choice
+          Customer&apos;s Choice
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {customerChoice.map((item) => (

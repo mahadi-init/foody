@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MapPin, Clock, Utensils, Award, Truck, PhoneCall } from "lucide-react";
+import { MapPin, Clock, Utensils, Award, Truck } from "lucide-react";
+import Image from "next/image";
 
 export default function SecondSection() {
   return (
@@ -79,7 +80,7 @@ export default function SecondSection() {
             {[1, 2, 3, 4].map((i) => (
               <Card key={i}>
                 <CardContent className="p-4">
-                  <img
+                  <Image
                     src={`/placeholder.svg?height=150&width=250&text=Restaurant ${i}`}
                     alt={`Restaurant ${i}`}
                     className="w-full h-40 object-cover rounded-md mb-4"
@@ -119,7 +120,7 @@ export default function SecondSection() {
                   20% Off on Family Meals
                 </h3>
                 <p className="mb-4">Valid for orders above $50</p>
-                <Button variant="primary">Claim Offer</Button>
+                <Button>Claim Offer</Button>
               </CardContent>
             </Card>
           </div>
@@ -137,11 +138,11 @@ export default function SecondSection() {
               <Card key={i}>
                 <CardContent className="p-6">
                   <p className="mb-4 italic">
-                    "The food was amazing and the delivery was super fast! Will
-                    definitely order again."
+                    &quot;The food was amazing and the delivery was super fast!
+                    Will definitely order again.&quot;
                   </p>
                   <div className="flex items-center">
-                    <img
+                    <Image
                       src={`/placeholder.svg?height=50&width=50&text=User ${i}`}
                       alt={`User ${i}`}
                       className="w-12 h-12 rounded-full mr-4"

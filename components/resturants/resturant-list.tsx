@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, Clock } from "lucide-react";
+import { Route } from "next";
 
 // This would typically come from an API or database
 const restaurants = [
@@ -66,7 +67,10 @@ export default function RestaurantList() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {restaurants.map((restaurant) => (
-        <Link href={`/restaurants/${restaurant.id}`} key={restaurant.id}>
+        <Link
+          href={`/restaurants/${restaurant.id}` as Route}
+          key={restaurant.id}
+        >
           <Card className="h-full hover:shadow-lg transition-shadow duration-200">
             <CardContent className="p-0">
               <Image
