@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
-import OffersList from "@/components/offers/offer-list";
+import OffersList from "@/app/offers/offer-list";
 
 export default function OffersPage() {
   return (

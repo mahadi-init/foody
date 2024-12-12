@@ -1,5 +1,5 @@
-import FirstSection from "@/components/home/first-section";
-import SecondSection from "@/components/home/second-section";
+import FirstSection from "@/app/first-section";
+import SecondSection from "@/app/second-section";
 
 export default function Home() {
   return (

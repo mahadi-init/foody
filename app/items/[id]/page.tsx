@@ -2,7 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Star, Clock, Utensils, AlertCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import AddToCartButton from "@/app/items/[id]/add-to-cart-button";
+import AddToCartButton from "./add-to-cart-button";
 
 // This would typically come from an API or database
 const getItemDetails = (id: string) => {

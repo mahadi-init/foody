@@ -52,32 +52,32 @@ export default function Navbar() {
                         </li>
                         <li>
                           <NavigationMenuLink asChild>
-                            <a
+                            <Link
                               href="/cuisines/italian"
                               className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                             >
                               Italian
-                            </a>
+                            </Link>
                           </NavigationMenuLink>
                         </li>
                         <li>
                           <NavigationMenuLink asChild>
-                            <a
+                            <Link
                               href="/cuisines/chinese"
                               className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                             >
                               Chinese
-                            </a>
+                            </Link>
                           </NavigationMenuLink>
                         </li>
                         <li>
                           <NavigationMenuLink asChild>
-                            <a
+                            <Link
                               href="/cuisines/indian"
                               className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                             >
                               Indian
-                            </a>
+                            </Link>
                           </NavigationMenuLink>
                         </li>
                       </ul>

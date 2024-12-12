@@ -1,8 +1,8 @@
 import { Suspense } from "react";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
-import RestaurantFilters from "@/components/resturants/resturants-filter";
-import RestaurantList from "@/components/resturants/resturant-list";
+import RestaurantFilters from "@/app/restaurants/resturants-filter";
+import RestaurantList from "@/app/restaurants/resturant-list";
 
 export default function Restaurants() {
   return (

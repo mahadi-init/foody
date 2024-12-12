@@ -1,6 +1,6 @@
-import CheckoutForm from "@/components/checkout/checkout-form";
-import OrderSummary from "@/components/checkout/order-summary";
 import { Suspense } from "react";
+import CheckoutForm from "./checkout-form";
+import OrderSummary from "./order-summary";
 
 export default function CheckoutPage() {
   return (
