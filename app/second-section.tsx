@@ -3,8 +3,13 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Clock, Utensils, Award, Truck } from "lucide-react";
 import Image from "next/image";
+import { Resturant } from "@prisma/client";
 
-export default function SecondSection() {
+export default function SecondSection({
+  resturants,
+}: {
+  resturants: Resturant[];
+}) {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -77,19 +82,25 @@ export default function SecondSection() {
             Featured Restaurants
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[1, 2, 3, 4].map((i) => (
-              <Card key={i}>
+            {resturants.map((item, index) => (
+              <Card key={index}>
                 <CardContent className="p-4">
                   <Image
-                    src={`/placeholder.svg?height=150&width=250&text=Restaurant ${i}`}
-                    alt={`Restaurant ${i}`}
+                    src={item.image}
+                    alt={item.resturantType}
+                    height={150}
+                    width={150}
                     className="w-full h-40 object-cover rounded-md mb-4"
                   />
-                  <h3 className="font-semibold text-lg mb-2">Restaurant {i}</h3>
-                  <p className="text-muted-foreground mb-2">Cuisine Type</p>
+                  <h3 className="font-semibold text-lg mb-2">
+                    {item.resturantType}
+                  </h3>
+                  <p className="text-muted-foreground mb-2">
+                    {item.cuisineType}
+                  </p>
                   <div className="flex items-center">
                     <Clock className="w-4 h-4 mr-1 text-primary" />
-                    <span className="text-sm">30-45 min</span>
+                    <span className="text-sm">{item.prepareTime}</span>
                   </div>
                 </CardContent>
               </Card>
@@ -145,6 +156,8 @@ export default function SecondSection() {
                     <Image
                       src={`/placeholder.svg?height=50&width=50&text=User ${i}`}
                       alt={`User ${i}`}
+                      height={50}
+                      width={50}
                       className="w-12 h-12 rounded-full mr-4"
                     />
                     <div>
