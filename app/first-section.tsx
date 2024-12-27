@@ -12,67 +12,9 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Star, ChefHat, ThumbsUp, Heart } from "lucide-react";
+import { Food } from "@prisma/client";
 
-const foodItems = [
-  {
-    id: 1,
-    name: "Spicy Chicken Pizza",
-    price: "$12.99",
-    rating: 4.5,
-    image: "/placeholder.svg?height=200&width=300",
-  },
-  {
-    id: 2,
-    name: "Vegetarian Sushi Roll",
-    price: "$9.99",
-    rating: 4.2,
-    image: "/placeholder.svg?height=200&width=300",
-  },
-  {
-    id: 3,
-    name: "Classic Cheeseburger",
-    price: "$8.99",
-    rating: 4.7,
-    image: "/placeholder.svg?height=200&width=300",
-  },
-  {
-    id: 4,
-    name: "Creamy Pasta Alfredo",
-    price: "$11.99",
-    rating: 4.3,
-    image: "/placeholder.svg?height=200&width=300",
-  },
-  {
-    id: 5,
-    name: "Fresh Greek Salad",
-    price: "$7.99",
-    rating: 4.1,
-    image: "/placeholder.svg?height=200&width=300",
-  },
-  {
-    id: 6,
-    name: "Crispy Fish and Chips",
-    price: "$13.99",
-    rating: 4.6,
-    image: "/placeholder.svg?height=200&width=300",
-  },
-  {
-    id: 7,
-    name: "Spicy Thai Curry",
-    price: "$10.99",
-    rating: 4.4,
-    image: "/placeholder.svg?height=200&width=300",
-  },
-  {
-    id: 8,
-    name: "Gourmet Ice Cream Sundae",
-    price: "$6.99",
-    rating: 4.8,
-    image: "/placeholder.svg?height=200&width=300",
-  },
-];
-
-const FoodCard = ({ item }: { item: (typeof foodItems)[0] }) => (
+const FoodCard = ({ item }: { item: Food[][0] }) => (
   <Card className="w-full">
     <CardContent className="p-4">
       <Image
@@ -95,25 +37,18 @@ const FoodCard = ({ item }: { item: (typeof foodItems)[0] }) => (
   </Card>
 );
 
-export default function FirstSection() {
+export default function FirstSection({ foodItems }: { foodItems: Food[] }) {
   const [trending, setTrending] = useState(foodItems.slice(0, 4));
   const [favorite, setFavorite] = useState(foodItems.slice(2, 6));
   const [customerChoice, setCustomerChoice] = useState(foodItems.slice(4, 8));
 
   useEffect(() => {
-    // Simulate fetching data from an API
-    const fetchData = async () => {
-      // In a real application, you would fetch data from your backend here
-      // For now, we're just shuffling the existing items
-      setTrending([...foodItems].sort(() => 0.5 - Math.random()).slice(0, 4));
-      setFavorite([...foodItems].sort(() => 0.5 - Math.random()).slice(0, 4));
-      setCustomerChoice(
-        [...foodItems].sort(() => 0.5 - Math.random()).slice(0, 4),
-      );
-    };
-
-    fetchData();
-  }, []);
+    setTrending([...foodItems].sort(() => 0.5 - Math.random()).slice(0, 4));
+    setFavorite([...foodItems].sort(() => 0.5 - Math.random()).slice(0, 4));
+    setCustomerChoice(
+      [...foodItems].sort(() => 0.5 - Math.random()).slice(0, 4),
+    );
+  }, [foodItems]);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

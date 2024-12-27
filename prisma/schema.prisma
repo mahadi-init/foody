@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -8,4 +5,20 @@ generator client {
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
+}
+
+model Food {
+  id     String @id @unique @default(uuid())
+  name   String
+  price  String
+  rating Float
+  image  String
+}
+
+model Resturant {
+  id            String @id @unique @default(uuid())
+  image         String
+  resturantType String @map("resturant_type")
+  cuisineType   String @map("cuisine_type")
+  prepareTime   String @map("prepare_time")
 }

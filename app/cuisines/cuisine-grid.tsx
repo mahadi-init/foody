@@ -80,6 +80,8 @@ export default function CuisineGrid() {
                   alt={cuisine.name}
                   layout="fill"
                   objectFit="cover"
+                  height={300}
+                  width={300}
                 />
               </div>
               <div className="p-4">
