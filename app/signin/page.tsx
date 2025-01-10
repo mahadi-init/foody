@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useTransition } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import {
@@ -13,18 +13,29 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { Account } from "appwrite";
+import client from "@/lib/appwrite";
+import { toast } from "sonner";
 
 export default function SigninPage() {
-  const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
+  const { replace } = useRouter();
+  const [isLoading, starTransition] = useTransition();
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setIsLoading(true);
-    // Here you would typically send a request to your API to authenticate the user
-    await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulating API call
-    setIsLoading(false);
-    router.push("/"); // Redirect to home page after successful signin
+  const handleSubmit = async (formData: FormData) => {
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+
+    starTransition(async () => {
+      try {
+        const account = new Account(client);
+        await account.createEmailPasswordSession(email, password);
+
+        toast.success("Login succesful");
+        replace("/");
+      } catch (error) {
+        toast.error("Login failed");
+      }
+    });
   };
 
   return (
@@ -36,15 +47,15 @@ export default function SigninPage() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit}>
+          <form action={handleSubmit}>
             <div className="space-y-4">
               <div>
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" required />
+                <Input id="email" type="email" name="email" required />
               </div>
               <div>
                 <Label htmlFor="password">Password</Label>
-                <Input id="password" type="password" required />
+                <Input id="password" type="password" name="password" required />
               </div>
               <Button type="submit" className="w-full" disabled={isLoading}>
                 {isLoading ? "Signing in..." : "Sign In"}

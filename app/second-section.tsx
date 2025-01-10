@@ -3,13 +3,8 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Clock, Utensils, Award, Truck } from "lucide-react";
 import Image from "next/image";
-import { Resturant } from "@prisma/client";
 
-export default function SecondSection({
-  resturants,
-}: {
-  resturants: Resturant[];
-}) {
+export default function SecondSection() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -82,7 +77,7 @@ export default function SecondSection({
             Featured Restaurants
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {resturants.map((item, index) => (
+            {/*resturants.map((item, index) => (
               <Card key={index}>
                 <CardContent className="p-4">
                   <Image
@@ -104,7 +99,7 @@ export default function SecondSection({
                   </div>
                 </CardContent>
               </Card>
-            ))}
+            ))*/}
           </div>
         </div>
       </section>

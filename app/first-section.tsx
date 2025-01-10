@@ -12,11 +12,10 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Star, ChefHat, ThumbsUp, Heart } from "lucide-react";
-import { Food } from "@prisma/client";
 
-const FoodCard = ({ item }: { item: Food[][0] }) => (
+const FoodCard = () => (
   <Card className="w-full">
-    <CardContent className="p-4">
+    {/*<CardContent className="p-4">
       <Image
         src={item.image}
         alt={item.name}
@@ -34,28 +33,29 @@ const FoodCard = ({ item }: { item: Food[][0] }) => (
       </div>
       <Button className="w-full mt-4">Add to Cart</Button>
     </CardContent>
+    */}
   </Card>
 );
 
-export default function FirstSection({ foodItems }: { foodItems: Food[] }) {
-  const [trending, setTrending] = useState(foodItems.slice(0, 4));
-  const [favorite, setFavorite] = useState(foodItems.slice(2, 6));
-  const [customerChoice, setCustomerChoice] = useState(foodItems.slice(4, 8));
+export default function FirstSection() {
+  //const [trending, setTrending] = useState(foodItems.slice(0, 4));
+  //const [favorite, setFavorite] = useState(foodItems.slice(2, 6));
+  //const [customerChoice, setCustomerChoice] = useState(foodItems.slice(4, 8));
 
-  useEffect(() => {
-    setTrending([...foodItems].sort(() => 0.5 - Math.random()).slice(0, 4));
-    setFavorite([...foodItems].sort(() => 0.5 - Math.random()).slice(0, 4));
-    setCustomerChoice(
-      [...foodItems].sort(() => 0.5 - Math.random()).slice(0, 4),
-    );
-  }, [foodItems]);
+  //useEffect(() => {
+  //  setTrending([...foodItems].sort(() => 0.5 - Math.random()).slice(0, 4));
+  //  setFavorite([...foodItems].sort(() => 0.5 - Math.random()).slice(0, 4));
+  //  setCustomerChoice(
+  //    [...foodItems].sort(() => 0.5 - Math.random()).slice(0, 4),
+  //  );
+  //}, [foodItems]);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <section className="mb-12">
         <Carousel className="w-full max-w-5xl mx-auto">
           <CarouselContent>
-            {foodItems.map((item, index) => (
+            {/*foodItems.map((item, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
                   <Card>
@@ -71,7 +71,7 @@ export default function FirstSection({ foodItems }: { foodItems: Food[] }) {
                   </Card>
                 </div>
               </CarouselItem>
-            ))}
+            ))*/}
           </CarouselContent>
           <CarouselPrevious />
           <CarouselNext />
@@ -84,9 +84,9 @@ export default function FirstSection({ foodItems }: { foodItems: Food[] }) {
           Trending Now
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {trending.map((item) => (
+          {/*trending.map((item) => (
             <FoodCard key={item.id} item={item} />
-          ))}
+          ))*/}
         </div>
       </section>
 
@@ -96,9 +96,9 @@ export default function FirstSection({ foodItems }: { foodItems: Food[] }) {
           Most Favorite
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {favorite.map((item) => (
+          {/*favorite.map((item) => (
             <FoodCard key={item.id} item={item} />
-          ))}
+          ))*/}
         </div>
       </section>
 
@@ -108,9 +108,9 @@ export default function FirstSection({ foodItems }: { foodItems: Food[] }) {
           Customer&apos;s Choice
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {customerChoice.map((item) => (
+          {/*customerChoice.map((item) => (
             <FoodCard key={item.id} item={item} />
-          ))}
+          ))*/}
         </div>
       </section>
     </div>
